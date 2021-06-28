@@ -11,6 +11,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import jdk.internal.jline.internal.TestAccessible;
+
 @DisplayName("Classe para teste da calculadora")
 public class CalculadoraTest {
 	
@@ -21,7 +23,7 @@ public class CalculadoraTest {
 		calc = new Calculadora();
 	}
 	
-	@DisplayName("Testa a soma de dois números")
+	@DisplayName("Testa a soma de dois nÃºmeros")
 	@Test
 	public void testSomaDoisNumeros() {
 		int soma = calc.soma(4, 5);		
@@ -38,7 +40,7 @@ public class CalculadoraTest {
 	public void testDivisaoPorZero() {
 		try {
 			int divisao = calc.divisao(8, 0);
-			fail("Exceção não lançada");
+			fail("ExceÃ§Ã£o nÃ£o lanÃ§ada");
 		}catch (ArithmeticException e) {
 			assertEquals("/ by zero", e.getMessage());
 		}		
@@ -48,6 +50,21 @@ public class CalculadoraTest {
 	public void testDivisaoPorZeroComAssertThrows() {
 		assertThrows(ArithmeticException.class,
 				() -> calc.divisao(8, 0));
+	}
+
+	@Test
+	public Void testaSomatorio(){
+		assertEquals(55, calc.somatoria(10));
+	}
+
+	@Test
+	public Void testaPositivo(){
+		assertTrue(calc.ehPositivo(1));
+	}
+
+	@Test
+	public Void testaNegativo(){
+		assertFalse(calc.ehPositivo(-1));
 	}
 
 }
