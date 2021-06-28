@@ -13,6 +13,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+@DisplayName("Classe para teste do Produto")
 public class ProdutoTest {
 	
 	Produto livro;
